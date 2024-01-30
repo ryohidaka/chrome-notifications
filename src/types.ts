@@ -36,3 +36,15 @@ export type NotificationListItem = {
   notificationId: NotificationID;
   active: boolean;
 };
+
+/**
+ * NotificationPermissonLevel is a type that represents the status of a notification permission level.
+ * @property {string} level - The level of notification permission.
+ * @property {boolean} isGranted - A flag indicating whether the permission is granted.
+ * @property {boolean} isDenied - A flag indicating whether the permission is denied.
+ */
+export type NotificationPermissonLevel = {
+  level: string;
+  isGranted: boolean;
+  isDenied: boolean;
+};

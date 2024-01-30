@@ -2,6 +2,7 @@ import {
   NotificationID,
   NotificationListItem,
   NotificationOptions,
+  NotificationPermissonLevel,
   NotificationType,
 } from "./types";
 
@@ -80,6 +81,26 @@ export const Notifications = {
             active,
           })),
         ),
+      ),
+    );
+  },
+
+  /**
+   * Gets the permission level for notifications.
+   *
+   * @returns {Promise<NotificationPermissonLevel>} A promise that resolves to an object containing:
+   * - `level`: The current permission level as a string.
+   * - `isGranted`: A boolean indicating whether permission has been granted.
+   * - `isDenied`: A boolean indicating whether permission has been denied.
+   */
+  getPermissionLevel: async (): Promise<NotificationPermissonLevel> => {
+    return new Promise((resolve) =>
+      chrome.notifications.getPermissionLevel((level) =>
+        resolve({
+          level: level,
+          isGranted: level === "granted",
+          isDenied: level === "denied",
+        }),
       ),
     );
   },
