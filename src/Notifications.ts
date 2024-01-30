@@ -22,4 +22,27 @@ export const Notifications = {
       });
     });
   },
+
+  /**
+   * Updates an existing notification.
+   *
+   * @param {NotificationID} notificationId - The ID of the notification to be updated.
+   * @param {NotificationOptions} options - The new options for the notification.
+   * @param {function} [callback] - Optional. A callback function that will be called with the updated notification.
+   *
+   * @returns {void}
+   */
+  update: (
+    notificationId: NotificationID,
+    options: NotificationOptions,
+
+    callback?: (notification: NotificationType) => void,
+  ) => {
+    chrome.notifications.update(notificationId, options, () => {
+      callback?.({
+        notificationId,
+        ...options,
+      });
+    });
+  },
 };
