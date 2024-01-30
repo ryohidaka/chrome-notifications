@@ -1,4 +1,9 @@
-import { NotificationID, NotificationOptions, NotificationType } from "./types";
+import {
+  NotificationID,
+  NotificationListItem,
+  NotificationOptions,
+  NotificationType,
+} from "./types";
 
 /**
  * Notification module to create and update notifications.
@@ -59,5 +64,23 @@ export const Notifications = {
     callback?: (wasCleared: boolean) => void,
   ) => {
     chrome.notifications.clear(notificationId, callback);
+  },
+
+  /**
+   * Retrieves all notifications.
+   * @returns {Promise<NotificationListItem[]>} A promise that resolves to an array of notification objects.
+   * Each object contains the notificationId and its active flag.
+   */
+  getAll: async (): Promise<NotificationListItem[]> => {
+    return new Promise((resolve) =>
+      chrome.notifications.getAll((notifications) =>
+        resolve(
+          Object.entries(notifications).map(([notificationId, active]) => ({
+            notificationId,
+            active,
+          })),
+        ),
+      ),
+    );
   },
 };

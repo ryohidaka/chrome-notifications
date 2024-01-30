@@ -26,3 +26,13 @@ export type NotificationType = {
   message: NotificationOptions["message"];
   iconUrl: NotificationOptions["iconUrl"];
 };
+
+/**
+ * NotificationListItem is a type that represents a single notification item.
+ * @property {NotificationID} notificationId - The unique identifier for the notification.
+ * @property {boolean} active - A flag indicating whether the notification is active.
+ */
+export type NotificationListItem = {
+  notificationId: NotificationID;
+  active: boolean;
+};
