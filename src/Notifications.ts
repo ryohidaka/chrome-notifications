@@ -45,4 +45,19 @@ export const Notifications = {
       });
     });
   },
+
+  /**
+   * Clears an existing notification.
+   *
+   * @param {NotificationID} notificationId - The ID of the notification to be cleared.
+   * @param {function} [callback] - Optional. A callback function that will be called with a boolean indicating whether the notification was cleared.
+   *
+   * @returns {void}
+   */
+  clear: (
+    notificationId: NotificationID,
+    callback?: (wasCleared: boolean) => void,
+  ) => {
+    chrome.notifications.clear(notificationId, callback);
+  },
 };
