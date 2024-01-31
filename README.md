@@ -12,6 +12,16 @@ Helper for `chrome.notifications` API.
 
 ## Notes
 
+To use the `chrome.notifications` API, declare the `"notifications"` permission in the [manifest](https://developer.chrome.com/docs/extensions/reference/manifest):
+
+```json
+{
+  "name": "My extension",
+
+  "permissions": ["notifications"]
+}
+```
+
 ## Installation
 
 You can install this library using npm:
