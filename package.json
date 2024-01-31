@@ -2,6 +2,14 @@
   "name": "chrome-notifications",
   "version": "0.1.0",
   "description": "Helper for chrome.notifications API.",
+  "keywords": [
+    "chrome",
+    "extension",
+    "extensions",
+    "ext",
+    "notification",
+    "notifications"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
